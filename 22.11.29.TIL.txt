@@ -1,0 +1,208 @@
+## 목차
+- JavaScript
+- 개인공부
+
+---
+
+## JavaScript
+
+
+
+### 데이터 타입 종류
+
+```
+**값이 담긴 주소값을 바로 복제**
+
+- 기본형(Primitive type) 
+    1. Number
+    2. String
+    3. Boolean
+    4. null
+    5. undefined
+    6. Symbol
+
+
+
+**값이 담긴 주소값들로 이루어진 묶음을 가리키는 주소값을 복제**
+
+- 참조형(Reference type)
+  - Object
+  	1. Array
+  	2. Function
+  	3. Date
+  	4. RegExp
+  	5. Map, WeakMap
+  	6. Set, WeakSet
+
+```
+
+
+### Bit
+
+```
+0과 1을 가지고 있는 작은 메모리 조각
+
+고유 식별자가 있다.
+```
+
+### Byte
+
+```
+bit를 8개 모은것
+
+```
+
+### Memory
+
+```
+작은 메모리 조각 (bit) 들이 모여서 메모리가 된다.
+```
+
+
+> 💡모든 bata는 byte단위의 식별자인 메모리 주소값을 통해서 서로 구분이 된다.
+
+---
+
+### 기본형데이터와 참조형데이터
+
+변수 || 상수 구분방법 
+- **변경가능성** 변수 바꾸면 **변수** 못바꾸면 **상수**
+```
+     var a = 7;	// 변수
+     let a = 7;	// 변수
+
+     const a = 7; // 상수
+```
+
+참조형데이터
+```
+ver obj1{
+	a: 1;
+    b: 'abc'
+}
+```
+
+
+> 불변객체
+
+> undefined와 null
+
+
+---
+
+## 개인공부
+
+> 화살표 함수
+
+함수 표현식보다 단순하고 간결한 문법으로 함수를 만들 수 있는 방법
+```
+function func(a,b){
+	return a+b;
+};
+
+		⬇️
+        
+let func= (a,b) => a+b;
+```
+❗️But
+- 가독성이 떨어진다.
+- this나 super에 대한 바인딩이 없고, methods 로 사용될 수 없습니다.
+- new.target키워드가 없습니다.
+- 일반적으로 스코프를 지정할 때 사용하는 call, apply, bind methods를 이용할 수 없습니다.
+- 생성자(Constructor)로 사용할 수 없습니다.
+- yield를 화살표 함수 내부에서 사용할 수 없습니다.
+
+
+> Exports와 Imports
+
+
+**jvascript.info 자료**
+```javascript
+모듈이란
+모듈은 단지 파일 하나에 불과합니다. 스크립트 하나는 모듈 하나입니다.
+
+모듈에 특수한 지시자 export와 import를 적용하면 
+다른 모듈을 불러와 불러온 모듈에 있는 함수를 
+호출하는 것과 같은 기능 공유가 가능합니다.
+
+export 지시자를 변수나 함수 앞에 붙이면 
+외부 모듈에서 해당 변수나 함수에 접근할 수 있습니다(모듈 내보내기).
+
+import 지시자를 사용하면 외부 모듈의 기능을 가져올 수 있습니다(모듈 가져오기).
+
+
+예시)
+
+내보내기
+// 📁 sayHi.js
+export function sayHi(user) {
+  alert(`Hello, ${user}!`);
+}
+
+가져오기
+// 📁 main.js
+import {sayHi} from './sayHi.js';
+
+alert(sayHi); // 함수
+sayHi('John'); // Hello, John!
+
+
+//모듈은 하나의 파일입니다. 브라우저에서 import ,export 지시자를 
+//사용하려면 <script type="module">같은 속성이 필요합니다.
+//모듈은 아래와 같은 특징을 지닙니다.
+```
+
+> Class
+
+**MDN 자료**
+class는 객체를 생성하기 위한 템플렛
+클래스는 데이터와 이를 조작하는 코드를 하나로 추상화
+
+```javascript
+// class 선언
+  class user{
+    crUser(name,age){
+		this.name = name;
+      	this.age = age;
+    }
+  }
+
+// Hoisting
+//함수 선언과 클래스 선언의 중요한 차이점은 함수의 경우 정의하기 하기 전에 
+//호출할 수 있지만, 클래스는 반드시 정의한 뒤에 사용할 수 있다는 점입니다
+  
+
+
+// class 표현식
+
+// unnamed
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// 출력: "Rectangle"
+
+// named
+let Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// 출력: "Rectangle2"
+```
+
+> rest와 spread
+
+[벨로퍼트님의 자료](https://learnjs.vlpt.us/useful/07-spread-and-rest.html)
+
+> 구조분해할당(Destructuring)
+
+
+
+
+
